@@ -2,7 +2,7 @@
   "name": "vueture-blocklevel-sass-utils",
   "version": "1.0.0",
   "description": "Vueture SASS Utils",
-  "main": "index.js",
+  "main": "index.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
