@@ -1,0 +1,26 @@
+{
+  "name": "vueture-blocklevel-sass-utils",
+  "version": "1.0.0",
+  "description": "Vueture SASS Utils",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Blocklevel/vueture-blocklevel-sass-utils.git"
+  },
+  "keywords": [
+    "vueture",
+    "sass",
+    "style",
+    "css",
+    "utils"
+  ],
+  "author": "Tim Rijkse - Blocklevel <tim@blocklevel.nl>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Blocklevel/vueture-blocklevel-sass-utils/issues"
+  },
+  "homepage": "https://github.com/Blocklevel/vueture-blocklevel-sass-utils#readme"
+}
