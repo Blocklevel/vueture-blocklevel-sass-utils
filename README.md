@@ -1,15 +1,13 @@
 # vueture-blocklevel-sass-utils
 > A Blocklevel Vueture SASS plugin, contains mixins, functions and extends for faster templating.
 
-## DOCS NOT DONE YET ##
-
 ## Installation ##
 Install the plugin by NPM:
 ``` bash
 $ npm install vueture-blocklevel-sass-utils --save
 ```
 
-Open ```src/assets/sass/app.scss``` and import ```vueture-blocklevel-sass-utils``` under the vendor chapter.
+Open ```src/assets/sass/app.scss``` and import ```vueture-blocklevel-sass-utils```
 
 
 ``` css
@@ -60,7 +58,7 @@ CSS easings based on ceaser. https://matthewlein.com/ceaser/
 | ```easeInOutSine``` | ```0.445, 0.050, 0.550, 0.950``` |
 | ```easeInOutExpo``` | ```1.000, 0.000, 0.000, 1.000``` |
 | ```easeInOutCirc``` | ```0.785, 0.135, 0.150, 0.860``` |
-| ```easeInOutBack``` | ```0.680, -0.550, 0.265, 1.550 |
+| ```easeInOutBack``` | ```0.680, -0.550, 0.265, 1.550``` |
 
 ### Respond-to ###
 Media query helper. Helps you to have consistent breakpoints.
@@ -106,8 +104,211 @@ Better z-index managing. Create a list of element names and get the ```z-index``
 ```
 
 #### Parameters: ####
-
 | name | type | description |
 |---|---|---|
 | ```$list``` | ```(Array)``` | The list to find the current ```z-index``` in |
 | ```$element``` | ```(String)``` | The name of the current element, must be in the ```$list``` |
+
+## Mixins ##
+See sass docs for more information about mixins.
+
+### Aspect ratio
+Maintain Aspect Ratio Mixin. The mixin assumes you'll be nesting an element with the class of content inside your initial block.
+
+#### Usage ####
+``` scss
+.sixteen-nine {
+  @include aspect-ratio(16, 9);
+}
+```
+
+``` html
+<div class="sixteen-nine">
+  <div class="content">16:9</div>
+</div>
+```
+
+#### Parameters ####
+
+| width | type | default value | description |
+|---|---|---|---|
+| ```$width``` | ```(Number)``` | ```16``` | Horizontal aspect ratio |
+| ```$height``` | ```(Number)``` | ```9``` | Vertical aspect ratio |
+
+### Font face ###
+Font face helper. Be sure to have the following font files: eot, woff, ttf, svg. Font can be generated at https://www.fontsquirrel.com/tools/webfont-generator
+
+#### Usage ####
+```scss
+// Name, folder, file
+@include font-face('QuatroBold', 'quatro', 'quatro-bold');
+```
+
+#### Paramenters ####
+| width | type | description |
+|---|---|---|
+| ```font-name``` | ```(String)``` | Name of the font |
+| ```folder-name``` | ```(String)``` | Subfolder inside the fonts folder |
+| ```file-name``` | ```(String)``` | Name of the font-file |
+| ```font-weight``` | ```(String)``` | normal - Font weight value |
+| ```font-style``` | ```(String)``` | normal - Font style value |
+
+### Placeholder ###
+Cross-browser :placeholder styles. Automatically adds all needed vendor prefixes.
+
+#### Example ####
+```scss
+input {
+  width: 200px;
+
+  @include placeholder() {
+    font-style: italic;
+    color: #B4D433;
+  }
+}
+```
+
+## Extends ##
+
+### transform-center ###
+Absolute element. Positioned in center horizontally and vertically.
+
+```scss
+.my-element {
+  @extend %transform-center;
+}
+
+// Renders:
+.my-element {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+```
+
+### force-hardware ###
+Sets transform and backface-visiblity which forces hardware acceleration.
+
+```scss
+.my-element {
+  @extend %force-hardware;
+}
+
+// Renders:
+.my-element {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+```
+
+
+### clearfix ###
+Clearfix, For clearing floats like a boss. See http://h5bp.com/q
+
+Style guide: utils.extends.clearfix
+```scss
+.my-element {
+  @extend %clearfix;
+}
+
+// Renders:
+.my-element {
+	*zoom: 1;
+
+	&:before,
+	&:after {
+		display: table;
+		content: '';
+		line-height: 0;
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+```
+
+### reset-bmp ###
+Resets border, margin and padding
+
+```scss
+.my-element {
+  @extend %reset-bmp;
+}
+
+// Renders:
+.my-element {
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+```
+
+### reset-list ###
+Reset ul element. Removes list-style and extends %reset-bmp.
+
+```scss
+ul {
+  @extend %reset-list;
+}
+
+ul {
+  border: 0;
+  margin: 0;
+  padding: 0;
+	list-style: none;
+}
+```
+
+### reset-input ###
+Remove all default browser input styles.
+
+```scss
+input {
+  @extend %reset-input;
+}
+
+// Renders:
+input {
+	display: inline-block;
+	border: 0;
+	padding: 0;
+	background: none;
+	-webkit-appearance: none;
+
+	&:focus { outline: 0; }
+
+	&::-moz-focus-inner,
+	&[type=reset]::-moz-focus-inner,
+	&[type=button]::-moz-focus-inner,
+	&[type=submit]::-moz-focus-inner,
+	&::-moz-focus-inner,
+	&[type=file] > [type=button]::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+	}
+}
+```
+
+### unstyled-link ###
+A link that looks and acts like the text it is contained within.
+
+```scss
+a {
+  @extend %unstyled-link;
+}
+
+// Renders:
+a {
+	color: inherit;
+	text-decoration: inherit;
+	cursor: inherit;
+
+	&:active,
+	&:focus {
+		outline: none;
+	}
+}
+```
