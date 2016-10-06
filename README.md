@@ -59,32 +59,6 @@ CSS easings based on [ceaser](https://matthewlein.com/ceaser).
 | ```easeInOutCirc``` | ```0.785, 0.135, 0.150, 0.860``` |
 | ```easeInOutBack``` | ```0.680, -0.550, 0.265, 1.550``` |
 
-###Respond-to ##
-Media query helper. Helps you to have consistent breakpoints.
-
-### Usage ###
-``` scss
-.my-element {
-  width: 500px;
-
-  @include respond-to('x-small') {
-    width: 100%;
-  }
-}
-```
-
-### Mediaqueries: ###
-| key  | value |
-|---|---|
-| ```x-small``` | ```(max-width: 480px)``` |
-| ```small``` | ```(max-width: 768px)``` |
-| ```medium``` | ```(max-width: 1024px)``` |
-| ```large``` | ```(min-width: 1025px)``` |
-| ```x-large``` | ```(min-width: 1480px)``` |
-| ```xx-large``` | ```(min-width: 1680px)``` |
-| ```from-x-small``` | ```(min-width: 481px)``` |
-| ```from-small``` | ```(min-width: 769px)``` |
-| ```from-medium``` | ```(min-width: 1025px)``` |
 
 ## zIndex ##
 Better z-index managing. Create a list of element names and get the ```z-index``` based on elements name. Returns a number.
