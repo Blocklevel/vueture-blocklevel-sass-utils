@@ -1,7 +1,7 @@
 # vueture-blocklevel-sass-utils
 > A Blocklevel Vueture SASS plugin, contains mixins, functions and extends for faster templating.
 
-## Installation ##
+# Installation #
 Install the plugin by NPM:
 ``` bash
 $ npm install vueture-blocklevel-sass-utils --save
@@ -9,25 +9,24 @@ $ npm install vueture-blocklevel-sass-utils --save
 
 Open ```src/assets/sass/app.scss``` and import ```vueture-blocklevel-sass-utils```
 
-
-``` css
-import '~vueture-blocklevel-sass-utils';
+``` scss
+@import '~vueture-blocklevel-sass-utils';
 ```
 
-## Functions ##
-See sass docs for more information about functions.
+# Functions #
+See [sass docs](http://thesassway.com/advanced/pure-sass-functions) for more information about functions.
 
-### Ease ###
-CSS easings based on ceaser. https://matthewlein.com/ceaser/
+## Ease ##
+CSS easings based on [ceaser](https://matthewlein.com/ceaser).
 
-#### Usage ####
+### Usage ###
 ``` scss
 .my-ease-element {
   transition: background 200ms ease('easeInOut');
 }
 ```
 
-#### Easings ####
+### Easings ###
 | key  | value |
 |---|---|
 | ```linear``` | ```0.250, 0.250, 0.750, 0.750``` |
@@ -60,10 +59,10 @@ CSS easings based on ceaser. https://matthewlein.com/ceaser/
 | ```easeInOutCirc``` | ```0.785, 0.135, 0.150, 0.860``` |
 | ```easeInOutBack``` | ```0.680, -0.550, 0.265, 1.550``` |
 
-### Respond-to ###
+###Respond-to ##
 Media query helper. Helps you to have consistent breakpoints.
 
-#### Usage ####
+### Usage ###
 ``` scss
 .my-element {
   width: 500px;
@@ -74,7 +73,7 @@ Media query helper. Helps you to have consistent breakpoints.
 }
 ```
 
-#### Mediaqueries: ####
+### Mediaqueries: ###
 | key  | value |
 |---|---|
 | ```x-small``` | ```(max-width: 480px)``` |
@@ -87,10 +86,10 @@ Media query helper. Helps you to have consistent breakpoints.
 | ```from-small``` | ```(min-width: 769px)``` |
 | ```from-medium``` | ```(min-width: 1025px)``` |
 
-### zIndex ###
+## zIndex ##
 Better z-index managing. Create a list of element names and get the ```z-index``` based on elements name. Returns a number.
 
-#### Usage: ####
+### Usage: ###
 ``` scss
 @layout: content, popup;
 
@@ -103,19 +102,19 @@ Better z-index managing. Create a list of element names and get the ```z-index``
 }
 ```
 
-#### Parameters: ####
+### Parameters: ###
 | name | type | description |
 |---|---|---|
 | ```$list``` | ```(Array)``` | The list to find the current ```z-index``` in |
 | ```$element``` | ```(String)``` | The name of the current element, must be in the ```$list``` |
 
-## Mixins ##
+# Mixins #
 See sass docs for more information about mixins.
 
-### Aspect ratio
+## Aspect ratio ##
 Maintain Aspect Ratio Mixin. The mixin assumes you'll be nesting an element with the class of content inside your initial block.
 
-#### Usage ####
+### Usage ###
 ``` scss
 .sixteen-nine {
   @include aspect-ratio(16, 9);
@@ -128,23 +127,23 @@ Maintain Aspect Ratio Mixin. The mixin assumes you'll be nesting an element with
 </div>
 ```
 
-#### Parameters ####
+### Parameters ###
 
 | width | type | default value | description |
 |---|---|---|---|
 | ```$width``` | ```(Number)``` | ```16``` | Horizontal aspect ratio |
 | ```$height``` | ```(Number)``` | ```9``` | Vertical aspect ratio |
 
-### Font face ###
+## Font face ##
 Font face helper. Be sure to have the following font files: eot, woff, ttf, svg. Font can be generated at https://www.fontsquirrel.com/tools/webfont-generator
 
-#### Usage ####
+### Usage ###
 ```scss
 // Name, folder, file
 @include font-face('QuatroBold', 'quatro', 'quatro-bold');
 ```
 
-#### Paramenters ####
+### Paramenters ###
 | width | type | description |
 |---|---|---|
 | ```font-name``` | ```(String)``` | Name of the font |
@@ -153,10 +152,10 @@ Font face helper. Be sure to have the following font files: eot, woff, ttf, svg.
 | ```font-weight``` | ```(String)``` | normal - Font weight value |
 | ```font-style``` | ```(String)``` | normal - Font style value |
 
-### Placeholder ###
+## Placeholder ##
 Cross-browser :placeholder styles. Automatically adds all needed vendor prefixes.
 
-#### Example ####
+### Example ###
 ```scss
 input {
   width: 200px;
@@ -168,9 +167,9 @@ input {
 }
 ```
 
-## Extends ##
+# Extends #
 
-### transform-center ###
+## transform-center ##
 Absolute element. Positioned in center horizontally and vertically.
 
 ```scss
@@ -187,7 +186,7 @@ Absolute element. Positioned in center horizontally and vertically.
 }
 ```
 
-### force-hardware ###
+## force-hardware ##
 Sets transform and backface-visiblity which forces hardware acceleration.
 
 ```scss
@@ -204,7 +203,7 @@ Sets transform and backface-visiblity which forces hardware acceleration.
 ```
 
 
-### clearfix ###
+## clearfix ##
 Clearfix, For clearing floats like a boss. See http://h5bp.com/q
 
 Style guide: utils.extends.clearfix
@@ -230,7 +229,7 @@ Style guide: utils.extends.clearfix
 }
 ```
 
-### reset-bmp ###
+## reset-bmp ##
 Resets border, margin and padding
 
 ```scss
@@ -246,7 +245,7 @@ Resets border, margin and padding
 }
 ```
 
-### reset-list ###
+## reset-list ##
 Reset ul element. Removes list-style and extends %reset-bmp.
 
 ```scss
@@ -262,7 +261,7 @@ ul {
 }
 ```
 
-### reset-input ###
+## reset-input ##
 Remove all default browser input styles.
 
 ```scss
@@ -292,7 +291,7 @@ input {
 }
 ```
 
-### unstyled-link ###
+## unstyled-link ##
 A link that looks and acts like the text it is contained within.
 
 ```scss
