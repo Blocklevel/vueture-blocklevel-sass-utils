@@ -1,6 +1,6 @@
 {
   "name": "vueture-blocklevel-sass-utils",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Vueture SASS Utils",
   "main": "index.scss",
   "scripts": {
